@@ -24,9 +24,32 @@
 - role-based access and immutable audit ledger
 
 ## Revenue
-- self-host setup fee
-- managed hosting subscription per vehicle/fleet
-- support retainer with SLA
+
+### Pricing intelligence (real competitor research, 2026-07-19)
+Charter-bus/motorcoach dispatch-and-booking SaaS (busHive, Busify,
+Busie, Driver Schedule, BusCMMS) prices in the **$150-600/month for
+small fleets, $1,200-3,000/month for 50+-vehicle enterprise fleets**
+range, typically per-vehicle or per-user.
+
+### Tiers
+- **Self-host**: one-time setup fee (fork + seed + integration
+  support), no recurring platform fee — the operator runs its own
+  instance.
+- **Managed Starter**: **¥80,000/month flat** (JPY, no-code Stripe
+  Payment Link), unlimited vehicles/routes/providers for a single
+  small-fleet operator instance — consistent with the `cloud-itonami`
+  portfolio's existing Managed Starter reference point
+  (`docs/adr/2607161745` at `com-junkawasaki/root`) and squarely inside
+  the $150-600/month real competitor small-fleet range (≈$533/month at
+  ~¥150/$).
+- **Managed enterprise** (50+-vehicle fleets): negotiated, scaling from
+  the Starter tier baseline toward the $1,200-3,000/month real
+  competitor enterprise range.
+- Support retainer with SLA (self-host customers).
+
+No paid tenant yet (self-reported honestly, not fabricated) — see
+`90-docs/business/cloud-itonami-flagship-rollout-ledger.edn` at
+`com-junkawasaki/root` for this vertical's rollout status.
 
 ## Trust Controls
 - `:intercity-coach-governor` never lets a proposal for an unregistered/
