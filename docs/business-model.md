@@ -52,6 +52,18 @@ No paid tenant yet (self-reported honestly, not fabricated) — see
 `90-docs/business/cloud-itonami-flagship-rollout-ledger.edn` at
 `com-junkawasaki/root` for this vertical's rollout status.
 
+### Real-world operator landscape
+
+This blueprint is generic and forkable — it is not affiliated with,
+and has no code dependency on, any specific real operator. For market/
+competitive context, the `cloud-itonami-lei` catalog (ADR-2607110300 at
+`com-junkawasaki/root`) archives the published General Terms and
+Conditions of Carriage of
+[**Flix SE**](https://github.com/cloud-itonami/cloud-itonami-lei-529900fho4dyrmcnsv67)
+(LEI `529900FHO4DYRMCNSV67`, GLEIF-verified), the parent company of the
+FlixBus/FlixTrain intercity coach network operating across dozens of
+countries — a read-only reference, not a partnership or endorsement.
+
 ## Trust Controls
 - `:intercity-coach-governor` never lets a proposal for an unregistered/
   unverified vehicle/route/operator-license record, or a maintenance
