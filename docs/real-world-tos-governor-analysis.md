@@ -5,7 +5,7 @@
 [`cloud-itonami-lei-529900fho4dyrmcnsv67`](https://github.com/cloud-itonami/cloud-itonami-lei-529900fho4dyrmcnsv67)
 (Flix SE's real, currently-published General Terms and Conditions of
 Carriage, retrieved 2026-07-19) against this repo's own
-`src/intercitycoachops/governor.cljc`.
+`src/intercitycoachops/governor.cljk`.
 
 ## Methodology and scope (read this before the findings)
 
@@ -127,4 +127,4 @@ single baked-in national framework from the blueprint.
 
 - `cloud-itonami-lei-529900fho4dyrmcnsv67` (source document)
 - `cloud-itonami-isic-4921/docs/real-world-tos-governor-analysis.md` (the 7-company urban-transit analysis)
-- `src/intercitycoachops/governor.cljc` (the compared implementation)
+- `src/intercitycoachops/governor.cljk` (the compared implementation)
