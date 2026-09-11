@@ -14,7 +14,7 @@ Walk through the full disposition set — clean auto-commits, an always-escalati
 clojure -M:run
 ```
 
-The demo driver (`src/intercitycoachops/sim.cljc`) shows the OperationActor, the Intercity Coach Governor, and how a safety-concern flag or a high-cost maintenance order never auto-commits.
+The demo driver (`src/intercitycoachops/sim.cljk`) shows the OperationActor, the Intercity Coach Governor, and how a safety-concern flag or a high-cost maintenance order never auto-commits.
 
 ## Regenerate the live operator console
 
@@ -33,11 +33,11 @@ clojure -M:test
 ```
 
 Key test modules:
-- `test/intercitycoachops/governor_test.clj` — the four HARD checks (vehicle-unverified, provider-unverified, effect-not-propose, scope-excluded) and the scope-exclusion self-trip regression test
-- `test/intercitycoachops/phase_test.clj` — Phase 0→3 invariants; `:flag-safety-concern` never auto-eligible at any phase
-- `test/intercitycoachops/advisor_test.clj` — advisor proposal shape and consistency
-- `test/intercitycoachops/governor_contract_test.clj` — full graph integration, audit trail
-- `test/intercitycoachops/store_contract_test.clj` — Store protocol and MemStore implementation
+- `test/intercitycoachops/governor_test.cljk` — the four HARD checks (vehicle-unverified, provider-unverified, effect-not-propose, scope-excluded) and the scope-exclusion self-trip regression test
+- `test/intercitycoachops/phase_test.cljk` — Phase 0→3 invariants; `:flag-safety-concern` never auto-eligible at any phase
+- `test/intercitycoachops/advisor_test.cljk` — advisor proposal shape and consistency
+- `test/intercitycoachops/governor_contract_test.cljk` — full graph integration, audit trail
+- `test/intercitycoachops/store_contract_test.cljk` — Store protocol and MemStore implementation
 
 ## Lint
 
@@ -70,7 +70,7 @@ clojure -M:lint
 The **Intercity Coach Governor** sits at:
 
 ```
-src/intercitycoachops/governor.cljc
+src/intercitycoachops/governor.cljk
 ```
 
 Four HARD checks (all permanent, non-overrideable): vehicle-unverified,
@@ -84,13 +84,13 @@ and a `:coordinate-maintenance-order` above the cost threshold.
 
 | File | Role |
 |---|---|
-| `src/intercitycoachops/store.cljc` | Store protocol (MemStore); string-keyed vehicle/provider directories; append-only audit ledger |
-| `src/intercitycoachops/advisor.cljc` | IntercityCoachAdvisor (contained intelligence node; mock or real-LLM seam) |
-| `src/intercitycoachops/governor.cljc` | Intercity Coach Governor — independent compliance layer, four HARD checks |
-| `src/intercitycoachops/phase.cljc` | Phase table (0→3): read-only → assisted logging → assisted scheduling → supervised-auto |
-| `src/intercitycoachops/operation.cljc` | OperationActor (langgraph StateGraph) |
-| `src/intercitycoachops/sim.cljc` | Demo driver |
-| `src/intercitycoachops/render_html.clj` | Build-time HTML renderer for the live operator console |
+| `src/intercitycoachops/store.cljk` | Store protocol (MemStore); string-keyed vehicle/provider directories; append-only audit ledger |
+| `src/intercitycoachops/advisor.cljk` | IntercityCoachAdvisor (contained intelligence node; mock or real-LLM seam) |
+| `src/intercitycoachops/governor.cljk` | Intercity Coach Governor — independent compliance layer, four HARD checks |
+| `src/intercitycoachops/phase.cljk` | Phase table (0→3): read-only → assisted logging → assisted scheduling → supervised-auto |
+| `src/intercitycoachops/operation.cljk` | OperationActor (langgraph StateGraph) |
+| `src/intercitycoachops/sim.cljk` | Demo driver |
+| `src/intercitycoachops/render_html.cljk` | Build-time HTML renderer for the live operator console |
 
 ## Business model & operations
 
@@ -111,7 +111,7 @@ Operators must prove:
 
 1. **Read the README** (`../README.md`) for full architecture and context.
 2. **Run the demo**: `clojure -M:run`
-3. **Explore the Governor**: `src/intercitycoachops/governor.cljc` and its tests
+3. **Explore the Governor**: `src/intercitycoachops/governor.cljk` and its tests
 4. **Fork and seed**: replace the demo vehicle/provider directory with your own, following the steps above
 
 ---

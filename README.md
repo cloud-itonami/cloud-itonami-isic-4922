@@ -177,14 +177,14 @@ clojure -M:run
 
 ### Test suite
 
-- `test/intercitycoachops/governor_test.clj` -- unit tests of governor
+- `test/intercitycoachops/governor_test.cljk` -- unit tests of governor
   hard checks, scope exclusion, and the self-trip regression test
-- `test/intercitycoachops/advisor_test.clj` -- advisor proposal shape and
+- `test/intercitycoachops/advisor_test.cljk` -- advisor proposal shape and
   consistency
-- `test/intercitycoachops/phase_test.clj` -- rollout phase logic
-- `test/intercitycoachops/governor_contract_test.clj` -- full graph
+- `test/intercitycoachops/phase_test.cljk` -- rollout phase logic
+- `test/intercitycoachops/governor_contract_test.cljk` -- full graph
   integration, audit trail
-- `test/intercitycoachops/store_contract_test.clj` -- Store protocol and
+- `test/intercitycoachops/store_contract_test.cljk` -- Store protocol and
   MemStore implementation
 
 ### Modules
