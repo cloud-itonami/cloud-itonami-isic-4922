@@ -1,6 +1,6 @@
 (ns intercitycoachops.advisor-test
   "Unit tests of `intercitycoachops.advisor` proposal generation."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [intercitycoachops.advisor :as adv]
             [intercitycoachops.store :as store]))
 
