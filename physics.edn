@@ -1,0 +1,34 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:dev:physics` runs it.
+;;
+;; README "Robotics premise": for intercity coach / charter operators
+;; (ISIC 4922) the robot side is automated pre-trip inspection sensors and
+;; telematics-driven condition monitoring; people drive the coach. What that
+;; monitoring watches is physics: how hot a brake disc gets on a long
+;; mountain descent, and how far the loaded coach needs to stop. These cases
+;; measure those two quantities; no robot drives.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isic-4922"
+ :cases
+ [{:id :brake-disc-mountain-descent
+   :kind :thermal
+   :procedure "a ventilated cast-iron brake disc absorbs part of the coach's descent energy for 5 min; half the 45 mm disc is modelled with frictional heat as internal generation and the mid-plane as a symmetry face"
+   :params {:thickness-m 0.0225 :conductivity-w-mk 50.0 :density-kg-m3 7200.0 :specific-heat-j-kgk 500.0
+            :t0-c 40.0 :t-hot-c 25.0 :h-front-w-m2k 100.0 :h-back-w-m2k 0.0
+            :duration-s 300.0 :nodes 11 :threshold-c 450.0}
+   :sweep {:param :q-gen-w-m3 :values [1.0e6 2.0e6 4.0e6 6.0e6 8.0e6]}
+   :quantity :peak-back-c
+   :limit {:max 450.0 :basis "estimate: disc temperature above which friction-brake fade becomes a concern; the heat share per disc (retarder vs friction brakes on a ~6 % grade) and the ventilated-disc h are estimates too"}
+   :boundary {:lo 5.0e5 :hi 1.2e7}}
+  {:id :loaded-coach-emergency-stop
+   :kind :transport
+   :procedure "18 t loaded coach makes an emergency stop from motorway speed; the achievable deceleration (wet to dry road) is swept"
+   :params {:mass-kg 15000.0 :payload-kg 3000.0 :distance-m 2000.0 :v-max-mps 25.0 :a-max-mps2 0.8
+            :drive-force-n 40000.0 :crr 0.007 :cog-height-m 1.3 :support-half-length-m 3.0 :max-time-s 900.0}
+   :sweep {:param :brake-decel-mps2 :values [3.0 4.0 5.0 6.0 7.0]}
+   :quantity :stopping-distance-m
+   :limit {:max 70.0 :basis "estimate: headway the telematics monitor treats as safe at 90 km/h; reaction distance is not included"}
+   :boundary {:lo 1.0 :hi 9.0}}]}
