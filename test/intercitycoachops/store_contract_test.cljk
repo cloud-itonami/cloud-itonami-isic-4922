@@ -1,6 +1,6 @@
 (ns intercitycoachops.store-contract-test
   "Contract tests for `intercitycoachops.store/Store` protocol."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [intercitycoachops.store :as store]))
 
 (deftest mem-store-vehicle-lookup
